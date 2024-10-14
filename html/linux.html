@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Terminal</title>
+    <style>
+        body {
+            background: #1e1e1e;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .terminal {
+            width: 80%;
+            max-width: 900px;
+            border: 3px solid #ffffff;
+            border-radius: 12px;
+            background: #ffffff;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal input {
+            width: calc(100% - 20px);
+            border: none;
+            background-color: transparent;
+            color: #050202; /* Changed to white */
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 20px;
+            margin-top: 10px;
+            border-bottom: 2px solid #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .terminal input:focus {
+            border-bottom: 2px solid #ffffff;
+        }
+
+        #output {
+            max-height: 300px;
+            padding: 10px;
+            color: #ffffff; /* Changed to white */
+            font-family: 'Courier New', Courier, monospace;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            background-color: #3b4252;
+            border: 1px solid #4c566a;
+            transition: all 0.5s ease;
+        }
+
+        .prompt {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .home-btn {
+            background-color: #ffffff;
+            color: #080202;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background-color: #ffffff;
+        }
+
+        .typing {
+            display: inline-block;
+            border-right: 2px solid;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #ffffff; /* Changed to white */
+            }
+        }
+
+        #output::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #output::-webkit-scrollbar-thumb {
+            background: #ffffff;
+            border-radius: 5px;
+        }
+
+        #output::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="home-btn" onclick="window.location.href='index1.html'">Home</button>
+    <div class="terminal">
+        <div id="output"></div>
+        <input type="text" id="input" placeholder="Enter command..." autofocus autocomplete="off"
+            onkeydown="handleInput(event)">
+    </div>
+
+    <script>
+        function handleInput(event) {
+            if (event.key === 'Enter') {
+                var input = document.getElementById('input');
+                var command = input.value.trim();
+                input.value = '';
+
+                if (command === '') return;
+
+                var output = document.getElementById('output');
+                var newLine = document.createElement('div');
+                newLine.innerHTML = '<span class="prompt">$</span> <span class="command typing">' + command + '</span>';
+                output.appendChild(newLine);
+
+                setTimeout(() => {
+                    var responseLine = document.createElement('div');
+                    responseLine.innerHTML = '<span>' + fakeResponse(command) + '</span>';
+                    output.appendChild(responseLine);
+                    output.scrollTop = output.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        function fakeResponse(command) {
+            if (command.toLowerCase() === 'help') {
+                return "Available commands: help, exit, clear, version";
+            } else if (command.toLowerCase() === 'version') {
+                return "Linux Terminal Emulator v1.0.0";
+            } else if (command.toLowerCase() === 'clear') {
+                document.getElementById('output').innerHTML = '';
+                return "";
+            } else if (command.toLowerCase() === 'exit') {
+                window.close();
+                return "Exiting...";
+            } else {
+                return "Command not found: " + command;
+            }
+        }
+    </script>
+</body>
+
+</html>

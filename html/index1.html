@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mithilesh Raut's Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #121212; /* Dark background */
+            color: #ffffff;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #1c1c1c;
+        }
+        .section {
+            padding: 100px 0; /* Added padding for the sections */
+        }
+        .task-button {
+            background-color: #282828; /* Task button background */
+            color: #ffffff;
+            border: 1px solid #444; /* Optional border */
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            height: 150px; /* Match project box height */
+            font-size: 18px; /* Set the font size */
+            line-height: 150px; /* Center text vertically */
+            overflow: hidden; /* Prevent text overflow */
+            border-radius: 15px; /* Rounded corners for the boxes */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+        }
+        .task-button:hover {
+            background-color: #444; /* Hover effect */
+        }
+        .skills-section {
+            background-color: #1c1c1c; /* Matching background color */
+        }
+        img.profile-img {
+            margin-top: 50px; /* Move profile image slightly below the heading */
+            width: 150px; /* Adjust profile image size */
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Mithilesh Raut</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contacts</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="section text-center">
+    <h1>Welcome to My Profile</h1>
+    <img src="1721071400422.jpeg" alt="Mithilesh Raut" class="profile-img"> <!-- Replace with your image path -->
+    <p>This is my personal profile page.</p>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>Hi, I’m Mithilesh Dinesh Raut, a passionate DevOps enthusiast and technology innovator with a broad spectrum of skills in cloud computing, DevOps, and full-stack development. With hands-on experience in AWS, Python, Docker, Kubernetes, and Machine Learning, I enjoy integrating cutting-edge technologies to solve real-world problems.</p>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section skills-section">
+    <div class="container">
+        <h2>My Skills</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="task-button">
+                    <i class="fab fa-python"></i> Python
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button">
+                    <i class="fas fa-laptop-code"></i> Web Development
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button">
+                    <i class="fab fa-aws"></i> AWS
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button">
+                    <i class="fab fa-linux"></i> Linux
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button">
+                    <i class="fas fa-cogs"></i> DevOps
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button">
+                    <i class="fas fa-database"></i> Database Management
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section">
+    <div class="container">
+        <h2>My Projects</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='pythonsms.html'">
+                    <i class="fas fa-sms"></i> Send SMS
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='liveinterpreter.html'">
+                    <i class="fas fa-code"></i> Live HTML Interpreter
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='bulk_email.html'">
+                    <i class="fas fa-envelope"></i> Bulk E-mail
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='speechtotext.html'">
+                    <i class="fas fa-volume-up"></i> Speech to Text
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='linux.html'">
+                    <i class="fab fa-linux"></i> Linux Terminal
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='cam_live.html'">
+                    <i class="fas fa-camera"></i> Camera Live
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='capture.html'">
+                    <i class="fas fa-camera-retro"></i> Capture Image
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='geolocation.html'">
+                    <i class="fas fa-map-marker-alt"></i> Geolocation
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='googlesearch.html'">
+                    <i class="fas fa-search"></i> Search Top 5
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='gnome.html'">
+                    <i class="fas fa-desktop"></i> Gnome
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='draganddrop.html'">
+                    <i class="fas fa-arrows-alt"></i> Drag and Drop
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='chatbot.html'">
+                    <i class="fas fa-robot"></i> AI Bot
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='docker.html'">
+                    <i class="fab fa-docker"></i> My Docker
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='js_camera.html'">
+                    <i class="fas fa-camera"></i> My Camera
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='send_whatsapp.html'">
+                    <i class="fab fa-whatsapp"></i> Send Whatsapp
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='voice_recorder.html'">
+                    <i class="fas fa-video"></i> Video Recorder
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='text_to_speech.html'">
+                    <i class="fas fa-volume-up"></i> Text to Speech
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='social_media.html'">
+                    <i class="fab fa-facebook"></i> Social Media
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='ec2.html'">
+                    <i class="fas fa-cloud"></i> Launch EC2 Instance
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='create_iam.html'">
+                    <i class="fas fa-user-plus"></i> Create IAM User
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="task-button" onclick="window.location.href='s3_bucket.html'">
+                    <i class="fas fa-cloud-upload-alt"></i> Create S3 Bucket
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- Contacts Section -->
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2>Contact Me</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" class="form-control" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/mithilesh-raut-5195491bb?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bghk10bf0Tsi8mF0D2Zijlg%3D%3D" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/yourprofile" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+.contact-section {
+    padding: 80px 0; /* Increased padding to enlarge the section */
+    background-color: #222; /* Dark background color to match the theme */
+}
+
+.contact-section h2 {
+    font-size: 2.5em; /* Larger heading */
+    margin-bottom: 30px;
+    text-align: center; /* Center the heading */
+    color: white; /* Heading color */
+}
+
+.contact-section .form-control {
+    font-size: 1.2em; /* Increase input field size */
+    padding: 15px; /* Larger input fields */
+    background-color: #333; /* Dark background for input fields */
+    color: white; /* Input text color */
+    border: 1px solid #444; /* Border color */
+}
+
+.contact-section .btn-primary {
+    font-size: 1.2em; /* Larger button */
+    padding: 15px 30px; /* Button padding */
+    background-color: #f90; /* Button color */
+    border: none; /* Remove border */
+}
+
+.contact-section .form-group {
+    margin-bottom: 25px; /* Increase spacing between form elements */
+}
+
+.social-icons {
+    text-align: center; /* Center the social icons */
+    margin-top: 30px; /* Space above icons */
+}
+
+.social-icon {
+    font-size: 1.5em; /* Increase icon size */
+    color: white; /* Icon color */
+    margin: 0 15px; /* Spacing between icons */
+    text-decoration: none; /* Remove underline */
+}
+
+.social-icon:hover {
+    color: #f90; /* Hover color */
+}
+
+.container {
+    max-width: 900px; /* Wider container for the contact form */
+    margin: auto; /* Center the container */
+}
+</style>
+
+<!-- Include Font Awesome in your HTML head -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

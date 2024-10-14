@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Camera</title>
+    <script src="https://unpkg.com/dynamsoft-camera-enhancer@2.1.0/dist/dce.js"></script>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(135deg, #0f0f0f, #2a2a2a, #1c1c1c);
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            overflow-y: scroll;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav {
+            width: 100%;
+            background-color: #1c1c1c;
+            padding: 20px 0; /* Increased padding */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav ul li {
+            margin: 0 25px; /* Increased margin */
+        }
+
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 20px; /* Increased font size */
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #b0b0b0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px; /* Adjusted for fixed nav height */
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        #enhancerUIContainer {
+            width: 100%;
+            max-width: 900px; /* Increased max-width */
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px; /* Increased margin */
+            background-color: #2a2a2a;
+            border: 2px solid #444; /* Thicker border */
+            border-radius: 12px; /* Increased border radius */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Thicker shadow */
+            padding: 30px; /* Increased padding */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Increased gap */
+            align-items: center;
+            margin-top: 30px; /* Increased margin */
+        }
+
+        .button {
+            background: #333;
+            color: #e0e0e0;
+            border: 2px solid #444; /* Thicker border */
+            padding: 15px 30px; /* Increased padding */
+            font-size: 20px; /* Increased font size */
+            cursor: pointer;
+            transition: background 0.3s;
+            border-radius: 10px; /* Increased border radius */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Thicker shadow */
+        }
+
+        .button:hover {
+            background: #444;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 900px; /* Increased max-width */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .image-container img {
+            width: 300px; /* Increased width */
+            height: 300px; /* Increased height */
+            margin: 20px; /* Increased margin */
+            border: 4px solid #444; /* Thicker border */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Thicker shadow */
+            border-radius: 12px; /* Increased border radius */
+        }
+
+        /* Style the camera UI elements */
+        #enhancerUIContainer {
+            background-color: #1c1c1c;
+            border: 2px solid #444; /* Thicker border */
+            border-radius: 12px; /* Increased border radius */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Thicker shadow */
+        }
+
+        .dce-ui {
+            color: #e0e0e0;
+        }
+
+        .dce-ui button {
+            background-color: #333;
+            color: #e0e0e0;
+            border: 2px solid #444; /* Thicker border */
+            padding: 15px 30px; /* Increased padding */
+            border-radius: 10px; /* Increased border radius */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dce-ui button:hover {
+            background-color: #444;
+        }
+
+        .dce-ui input {
+            background-color: #333;
+            color: #e0e0e0;
+            border: 2px solid #444; /* Thicker border */
+            padding: 15px; /* Increased padding */
+            border-radius: 10px; /* Increased border radius */
+        }
+
+        .dce-ui input:focus {
+            outline: none;
+            border-color: #666;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index1.html">Home</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div id="enhancerUIContainer"></div>
+        <div class="button-container">
+            <button id="capture" class="button">Capture</button>
+        </div>
+        <div class="image-container" id="imageContainer"></div>
+    </div>
+
+    <script>
+        let enhancer = null,
+            images = [];
+
+        (async () => {
+            enhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance();
+            document.getElementById("enhancerUIContainer").appendChild(enhancer.getUIElement());
+            await enhancer.open(true);
+        })();
+
+        document.getElementById('capture').onclick = () => {
+            if (enhancer) {
+                let frame = enhancer.getFrame();
+                let image = document.createElement('img');
+                image.src = frame.canvas.toDataURL();
+                document.getElementById('imageContainer').appendChild(image);
+                images.push(image);
+            }
+        };
+
+        // Shuffle the button
+        let buttons = document.querySelectorAll('.button');
+        for (let i = buttons.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [buttons[i], buttons[j]] = [buttons[j], buttons[i]];
+        }
+    </script>
+</body>
+</html>
